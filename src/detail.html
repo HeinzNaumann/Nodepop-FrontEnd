@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaming directory</title>
+    <script src="./index.js"></script>
+    <script>
+    // https://developer.mozilla.org/es/docs/Web/API/URLSearchParams
+    const gameId = parseInt((new URLSearchParams(window.location.search)).get('id'));
+    (async () => {
+      await drawGame(gameId);
+      //await drawComments(gameId);
+    })();
+    </script>
+    <!-- TODO: #3 dar un poco de estética, usamos Bootstrap? -->
+</head>
+<body>
+  <div class="container">
+    <h1 id="game-name-title"></h1>
+    <h5 class="breadcrumb"><a href="/index.html">Lista </a> &raquo; <span></span></h5>
+    <section id="game-section">
+      <div class="game">
+        <div class="row">
+          <div class="col">
+            <div class="game-image-container">
+              <img class="img-thumbnail" id="game-image" src="" alt="" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="long-text" id="summary"></div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <div class="score rounded ok" id="metacritic-score"></div>
+                  </div>
+                  <div class="col">
+                    <div class="score rounded ok lighter smaller" id="user-score"></div>
+                  </div>
+                </div>
+                <div class="additional-data">Available for: <span id="platform"></span></div>
+                <div class="additional-data">Released on: <span id="release-date"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="comments">
+      <h2>Comments</h2>
+    </section>
+  </div>
+</body>
+</html>

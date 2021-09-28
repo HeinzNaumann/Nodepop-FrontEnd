@@ -1,0 +1,20 @@
+{
+  "name": "xi-frontend-pro",
+  "version": "1.0.0",
+  "description": "This is an example of a typical request: A friend of us wants to publish a list of video games and the details. Kind of a blog.",
+  "main": "index.js",
+  "dependencies": {
+    "json-server": "^0.16.3",
+    "servor": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jbayos@gitkc.cloud/keepcoding-bootcamps/full-stack-web-bootcamp-xi/frontend-pro/frontend-pro.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
