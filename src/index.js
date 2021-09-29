@@ -14,7 +14,7 @@ async function drawListGames() {
 async function drawGame(gameId) {
   let game = await getGameById(gameId);
   document.getElementById('game-name-title').innerHTML = game.name;
-  // TODO: #4 breadcrumb???? Let's use jQuery!!
+  // TODO: #5 breadcrumb???? Let's use jQuery!!
   document.getElementById('game-image').src = game.image;
   document.getElementById('game-image').alt = game.name;
 
