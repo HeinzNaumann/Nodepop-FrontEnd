@@ -1,0 +1,15 @@
+
+.container-main{
+    display:grid;
+    height: 100vh;
+}
+
+.container-form{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.login-text{
+    text-align: center;
+}
