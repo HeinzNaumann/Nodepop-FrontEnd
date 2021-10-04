@@ -1,0 +1,20 @@
+[ 
+            {
+                "nombre" : "Lavadora Siemens",
+                "precio" : 45,
+                "enventa": "Se compra"
+            },
+            {
+                "nombre" : "Television panasonic",
+                "precio" : 1500,
+                "compra": true,
+                "venta": false,
+                "enventa": "En venta"
+            },
+            {
+                "nombre" : "Lavavajillas AEG",
+                "precio" : 345,
+                "enventa": "En venta"
+            }
+            
+        ]
