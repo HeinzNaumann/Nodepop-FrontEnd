@@ -1,3 +1,5 @@
+import dataService from "../servicios/dataService.js"
+
 export default class SignupController {
 
     constructor(element) {
@@ -30,7 +32,7 @@ export default class SignupController {
 
 
     attachEventListeners() {
-        this.element.addEventListener('submit', function (event) {
+        this.element.addEventListener('submit', async function (event) {
 
             // evitamos que el formulario se envie
             event.preventDefault()
@@ -38,6 +40,16 @@ export default class SignupController {
             //comprobar si valida
 
             if (this.checkValidity()) {
+                try{
+                    const data = new FormData(this)
+                    const username = data.get('username')
+                    const password = data.get('password')
+                    const result = await dataService.registerUser(username, password)
+                    alert('Registrado correctamente')
+                }catch(error){
+                    alert(error)
+                }
+
                 console.log('Formulario ok')
             } else {
                 let errorMessage = ''
@@ -55,6 +67,17 @@ export default class SignupController {
         this.element.querySelectorAll('input[type="password"]').forEach(input => {
             input.addEventListener('input', () =>{
                this.checkIfAllPasswordsAreEqual()
+            })
+        })
+
+        this.element.querySelectorAll('input').forEach(inputElement =>{
+       
+            inputElement.addEventListener('input', () =>{
+                if(this.element.checkValidity()){
+                    this.element.querySelector('button').removeAttribute('disabled')
+                }else{
+                    this.element.querySelector('button').setAttribute('disabled', true)
+                }
             })
         })
     }
