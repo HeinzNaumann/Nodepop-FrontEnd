@@ -62,3 +62,13 @@
     transform: rotate(360deg);
   }
 }
+
+.error{
+  color: red;
+  padding: 20px;
+  border: 2px solid red;
+  position: absolute;
+  top:40%;
+  left:40%;
+
+}

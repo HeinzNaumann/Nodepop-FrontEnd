@@ -1,19 +1,19 @@
 const url = "../../DB.json"
 
-export default{
+export default {
 
-    getAnuncios: async function(){
+    getAnuncios: async function () {
 
         const response = await fetch(url)
 
-        if(response.ok){
+        if (response.ok) {
             return await response.json()
-        }else{
+        } else {
             throw new Error("Error al recuperar los anuncios")
         }
 
 
-        
+
 
     }
 }

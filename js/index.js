@@ -1,18 +1,24 @@
-import {anuncioView} from "./views.js"
-import dataService from "./servicios/dataService.js"
-import anunciosListController from "../controllers/anunciosListController.js"
+import AnuncioListController from "./controllers/AnuncioListController.js";
+import ErrorMessageController from "./controllers/ErrorMessageController.js";
+
+window.addEventListener("DOMContentLoaded", function () {
 
 
-const list = document.querySelector(".post-list")
-anunciosListController(list)
-
-/*
-
-async function loadAnuncios(){
+  //controlador de mensajes de error
+  const errorDiv = document.querySelector('.error-message')
+  const errorMessageController = new ErrorMessageController(errorDiv)
 
 
+  //coger el elemento del DOM donde quiero cargar los anuncios
+  const anuncioListDiv = document.querySelector(".anuncio-list");
 
-}
+  // Crear un controlador pasandole el elemento del DOM donde cargar los anuncios
+  const anuncioListController = new AnuncioListController(anuncioListDiv, errorMessageController);
 
-window.addEventListener('DOMContentLoaded', loadAnuncios)
-*/    
+  // decir al controlador que pinte los anuncios
+
+  anuncioListController.renderAnuncios();
+
+
+
+});
