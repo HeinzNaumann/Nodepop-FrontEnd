@@ -7,12 +7,25 @@ export default class SignupController {
 
     checkIfAllPasswordsAreEqual(passwordToCheck) {
         const inputPassword = this.element.querySelectorAll('input[type="password"]')
-        for (const input of inputPassword) {
-            if (input.value !== passwordToCheck) {
-                return false
+
+        // guardo las contraseñas que hay en los inpjts
+        let passwords = []
+        for (const input of inputPassword){
+          if (passwords.includes(input.value) === false){
+              passwords.push(input.value)
+          }
+        }
+        
+        if(passwords.length == 1){
+            for(const input of inputPassword){
+                input.setCustomValidity('')
+            }
+        }else{
+            for(const input of inputPassword){
+                input.setCustomValidity('Las passwords no coinciden')
             }
         }
-        return true
+
     }
 
 
@@ -30,7 +43,7 @@ export default class SignupController {
                 let errorMessage = ''
                 for (const element of this.elements) {
                     if (element.validity.valid === false) {
-                        errorMessage += `El Campo ${element.name} no puede estar vacío.`
+                        errorMessage += `Error en el Campo ${element.name}: ${element.validationMessage}.`
 
                     }
                 }
@@ -40,12 +53,8 @@ export default class SignupController {
         })
 
         this.element.querySelectorAll('input[type="password"]').forEach(input => {
-            input.addEventListener('input', function () {
-                if (input.value == otrasPassword) {
-                    input.setCustomValidity('')
-                } else {
-                    input.setCustomValidity('Las contraseñas no coinciden')
-                }
+            input.addEventListener('input', () =>{
+               this.checkIfAllPasswordsAreEqual()
             })
         })
     }
