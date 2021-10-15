@@ -1,4 +1,4 @@
-const url = "../../DB.json"
+const url = "http://localhost:8000/auth/register"
 
 export default {
 
@@ -18,6 +18,9 @@ export default {
         const url = 'http://localhost:8000/auth/register'
         const requestConfig = {
             method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
             body: JSON.stringify({username, password})
         }
         const response = await fetch(url, requestConfig)
