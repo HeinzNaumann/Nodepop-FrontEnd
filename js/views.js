@@ -14,3 +14,10 @@ export function errorView(message) {
     <button> Cerrar </button>
     </div>`
 }
+
+export function succesView(message) {
+    return `<div class="sucess">
+    ${message}
+    <button> Cerrar </button>
+    </div>`
+}

@@ -72,3 +72,13 @@
   left:40%;
 
 }
+
+.sucess{
+  color: green;
+  padding: 20px;
+  border: 2px solid green;
+  position: absolute;
+  top:40%;
+  left:40%;
+
+}

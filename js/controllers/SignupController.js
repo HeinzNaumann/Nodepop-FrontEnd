@@ -1,4 +1,5 @@
 import dataService from "../servicios/dataService.js"
+import PubSub from "../servicios/PubSub.js"
 
 export default class SignupController {
 
@@ -45,12 +46,12 @@ export default class SignupController {
                     const username = data.get('username')
                     const password = data.get('password')
                     const result = await dataService.registerUser(username, password)
-                    alert('Registrado correctamente')
+                    PubSub.publish(PubSub.events.SHOW_SUCCESS, "Registrado Correctamente")
                 }catch(error){
-                    alert(error)
+                    PubSub.publish("SHOW_ERROR", error)
                 }
 
-                console.log('Formulario ok')
+               
             } else {
                 let errorMessage = ''
                 for (const element of this.elements) {
@@ -59,7 +60,7 @@ export default class SignupController {
 
                     }
                 }
-                alert(errorMessage)
+                PubSub.publish("SHOW_ERROR", errorMessage)
             }
 
         })
