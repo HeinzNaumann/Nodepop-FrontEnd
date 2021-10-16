@@ -8,9 +8,11 @@ export default {
 
         if (response.ok) {
             const anuncios = await response.json()
+            console.log(anuncios)
             return anuncios.map(anuncio => {
                 anuncio.date = anuncio.date || anuncio.updatedAt
                 anuncio.nombre = anuncio.nombre.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                anuncio.imagen = anuncio.imagen.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 return anuncio
             })
         } else {
@@ -66,8 +68,15 @@ export default {
         return localStorage.getItem('AUTH_TOKEN') !== null
     },
 
-    createProducto: async function (nombre) {
+    createProducto: async function (nombre, imagen, estadoCompra, estadoVenta, precio) {
         const url = "http://localhost:8000/api/productos"
-        return await this.post(url, { nombre })
+        if (estadoCompra === "on") {
+            estadoCompra = "Se compra"
+            estadoVenta = " "
+        } else if (estadoVenta === "on") {
+            estadoVenta = "Se vende"
+            estadoCompra = " "
+        }
+        return await this.post(url, { nombre, imagen, estadoCompra, estadoVenta, precio })
     }
 }

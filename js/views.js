@@ -4,7 +4,9 @@ export function anuncioView(anuncio) {
     return `<div class="post">
         <strong class="author">${anuncio.nombre}</strong>
         <p class="precio"> ${anuncio.precio}</p>
-        <p class="precio"> ${anuncio.date}</p>
+        <p class="precio"> ${anuncio.estadoVenta}</p>
+        <p class="precio"> ${anuncio.estadoCompra}</p>
+        <img class="img" src="${anuncio.imagen}" > </img>
     </div>`}
 
 
