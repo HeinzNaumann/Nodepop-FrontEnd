@@ -23,6 +23,10 @@ export default {
             },
             body: JSON.stringify(body)
         }
+        if(this.isAuthenticed()){
+            const token = localStorage.getItem('AUTH_TOKEN')
+            requestConfig.headers.Authorization = `Bearer ${token}`
+        }
         const response = await fetch(url, requestConfig)
         
         try{
@@ -40,14 +44,25 @@ export default {
 
     registerUser: async function(username, password){
         const url = 'http://localhost:8000/auth/register'
-        return this.post(url, {username, password})
+        return await this.post(url, {username, password})
         
     },
 
     
     login: async function(username, password){
         const url = 'http://localhost:8000/auth/login'
-        return this.post(url, {username, password})
+        const data = await this.post(url, {username, password})
+        const token = data.accessToken
+        localStorage.setItem('AUTH_TOKEN', token)
         
+    },
+
+    isAuthenticed: function(){
+        return localStorage.getItem('AUTH_TOKEN') !== null
+    },
+
+    createProducto: async function(nombre){
+        const url = "http://localhost:8000/api/productos"
+        return await this.post(url, {productos: nombre} )
     }
 }
