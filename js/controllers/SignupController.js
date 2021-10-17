@@ -13,18 +13,18 @@ export default class SignupController {
 
         // guardo las contraseñas que hay en los inpjts
         let passwords = []
-        for (const input of inputPassword){
-          if (passwords.includes(input.value) === false){
-              passwords.push(input.value)
-          }
+        for (const input of inputPassword) {
+            if (passwords.includes(input.value) === false) {
+                passwords.push(input.value)
+            }
         }
-        
-        if(passwords.length == 1){
-            for(const input of inputPassword){
+
+        if (passwords.length == 1) {
+            for (const input of inputPassword) {
                 input.setCustomValidity('')
             }
-        }else{
-            for(const input of inputPassword){
+        } else {
+            for (const input of inputPassword) {
                 input.setCustomValidity('Las passwords no coinciden')
             }
         }
@@ -41,17 +41,18 @@ export default class SignupController {
             //comprobar si valida
 
             if (this.checkValidity()) {
-                try{
+                try {
                     const data = new FormData(this)
                     const username = data.get('username')
                     const password = data.get('password')
                     const result = await dataService.registerUser(username, password)
                     PubSub.publish(PubSub.events.SHOW_SUCCESS, "Registrado Correctamente")
-                }catch(error){
+                    window.location.href = '/login.html'
+                } catch (error) {
                     PubSub.publish("SHOW_ERROR", error)
                 }
 
-               
+
             } else {
                 let errorMessage = ''
                 for (const element of this.elements) {
@@ -66,17 +67,17 @@ export default class SignupController {
         })
 
         this.element.querySelectorAll('input[type="password"]').forEach(input => {
-            input.addEventListener('input', () =>{
-               this.checkIfAllPasswordsAreEqual()
+            input.addEventListener('input', () => {
+                this.checkIfAllPasswordsAreEqual()
             })
         })
 
-        this.element.querySelectorAll('input').forEach(inputElement =>{
-       
-            inputElement.addEventListener('input', () =>{
-                if(this.element.checkValidity()){
+        this.element.querySelectorAll('input').forEach(inputElement => {
+
+            inputElement.addEventListener('input', () => {
+                if (this.element.checkValidity()) {
                     this.element.querySelector('button').removeAttribute('disabled')
-                }else{
+                } else {
                     this.element.querySelector('button').setAttribute('disabled', true)
                 }
             })

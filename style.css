@@ -10,8 +10,8 @@
 
 .container-form{
     display: grid;
-    justify-content: center;
-    align-content: center;
+    justify-content: left;
+    align-content: top;
 }
 
 .login-text{
