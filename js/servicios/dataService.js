@@ -26,20 +26,37 @@ export default {
     getDetalleAnuncio: async function (anuncioID) {
         const url = `http://localhost:8000/api/productos/${anuncioID}`
         const response = await fetch(url)
-
-
         if (response.ok) {
             const anuncio = await response.json()
+
+            anuncio.canBeDeleted = anuncio.userId === this.getAuthUserId()
+
             return anuncio
         } else {
-            throw new Error('Error al cargar el producto')
+            if (response.status == 404) {
+                return null
+            } else {
+                throw new Error('Error al cargar el producto')
+            }
         }
     },
 
+    delete: async function (url, body = {}) {
+        return await this.request('DELETE', url, body)
+    },
+
     post: async function (url, body) {
+        return await this.request('POST', url, body)
+    },
+
+    put: async function (url, body) {
+        return await this.request('PUT', url, body)
+    },
+
+    request: async function (method, url, body) {
 
         const requestConfig = {
-            method: 'POST',
+            method: method,
             headers: {
                 'Content-type': 'application/json'
             },
@@ -93,5 +110,32 @@ export default {
             estadoCompra = " "
         }
         return await this.post(url, { nombre, imagen, estadoCompra, estadoVenta, precio })
+    },
+
+    deleteProducto: async function (anuncioID) {
+        const url = `http://localhost:8000/api/productos/${anuncioID}`
+        return await this.delete(url)
+    },
+
+    getAuthUserId: function () {
+        const token = localStorage.getItem('AUTH_TOKEN')
+
+        if (token === null) {
+            return null
+        }
+        const b64Parts = token.split('.')
+        if (b64Parts.length !== 3) {
+            return null
+        }
+        const b64Data = token.split('.')[1]
+        try {
+            const userJSON = atob(b64Data)
+            const user = JSON.parse(userJSON)
+            return user.userId
+
+        } catch (error) {
+            console.log("Error while decoding Token", error)
+            return null
+        }
     }
 }

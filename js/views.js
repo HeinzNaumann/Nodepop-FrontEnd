@@ -33,11 +33,22 @@ export function loaderView() {
 }
 
 export function detalleProductoVista(anuncio) {
+
+
+    if (anuncio === null) {
+        return `<h1>:( No existe este anuncio </h1>`
+    }
+    let button = ''
+
+    if (anuncio.canBeDeleted) {
+        button = `<button class="delete">Borrar</button>`
+    }
     return `
-        <p style="font-size:2em">${anuncio.nombre}</p>
+            <p style = "font-size:2em" > ${ anuncio.nombre}</p >
                 <p class="precio"> Precio : ${anuncio.precio} € </p>
-        <p class="estado"> ${anuncio.estadoVenta}</p>
-        <p class="estado"> ${anuncio.estadoCompra} </p>
-        <img class="img" src="${anuncio.imagen}" > </img>
+                <p class="estado"> ${anuncio.estadoVenta}</p>
+                <p class="estado"> ${anuncio.estadoCompra} </p>
+                <img class="img" src="${anuncio.imagen}" > </img>
+                ${button}
     `
 }
