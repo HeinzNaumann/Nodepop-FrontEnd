@@ -17,8 +17,23 @@ export default {
             })
         } else {
             throw new Error("Error al recuperar los anuncios")
+
         }
 
+    },
+
+
+    getDetalleAnuncio: async function (anuncioID) {
+        const url = `http://localhost:8000/api/productos/${anuncioID}`
+        const response = await fetch(url)
+
+
+        if (response.ok) {
+            const anuncio = await response.json()
+            return anuncio
+        } else {
+            throw new Error('Error al cargar el producto')
+        }
     },
 
     post: async function (url, body) {

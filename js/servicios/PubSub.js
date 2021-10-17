@@ -3,10 +3,12 @@ const hOP = topics.hasOwnProperty;
 
 export default {
 
-    events:{
-        SHOW_SUCCESS: 'SHOW_SUCCESS',
-        SHOW_ERROR: 'SHOW_ERROR'
-    },
+  events: {
+    SHOW_SUCCESS: 'SHOW_SUCCESS',
+    SHOW_ERROR: 'SHOW_ERROR',
+    SHOW_LOADING: 'SHOW_LOADING',
+    HIDE_LOADING: 'HIDE_LOADING'
+  },
   subscribe: function (topic, listener) {
     // Create the topic's object if not yet created
     if (!hOP.call(topics, topic)) topics[topic] = [];

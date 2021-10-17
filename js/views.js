@@ -2,12 +2,15 @@
 
 export function anuncioView(anuncio) {
     return `<div class="post">
+
+        <a href="../detalleProducto.html?id=${anuncio.id}"
         <strong class="author">${anuncio.nombre}</strong>
-        <p class="precio"> ${anuncio.precio}</p>
-        <p class="precio"> ${anuncio.estadoVenta}</p>
-        <p class="precio"> ${anuncio.estadoCompra}</p>
+        <p class="precio"> Precio : ${anuncio.precio} € </p>
+        <p class="estado"> ${anuncio.estadoVenta}</p>
+        <p class="estado"> ${anuncio.estadoCompra} </p>
         <img class="img" src="${anuncio.imagen}" > </img>
-    </div>`}
+        </a>
+    </div> <hr>`}
 
 
 export function errorView(message) {
@@ -22,4 +25,19 @@ export function succesView(message) {
     ${message}
     <button> Cerrar </button>
     </div>`
+}
+
+
+export function loaderView() {
+    return `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
+}
+
+export function detalleProductoVista(anuncio) {
+    return `
+        <p style="font-size:2em">${anuncio.nombre}</p>
+                <p class="precio"> Precio : ${anuncio.precio} € </p>
+        <p class="estado"> ${anuncio.estadoVenta}</p>
+        <p class="estado"> ${anuncio.estadoCompra} </p>
+        <img class="img" src="${anuncio.imagen}" > </img>
+    `
 }
