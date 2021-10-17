@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "username": "pepe",
+      "password": "$2b$10$mzMeeHdd3nbdVGgb/i8cWeP3vBE9n5PmrwKaw8Ujx30X4nscUDLaq",
+      "id": 2
+    },
+    {
+      "username": "alfredo",
+      "password": "$2b$10$4sNJuOB9eyvNov1RGkxAP.vnuQjgjbuSek8P1Hf96IuIT22Ecomq.",
+      "id": 3
+    },
+    {
+      "username": "yuliia",
+      "password": "$2b$10$4sNJuOB9eyvNov1RGkxAP.vnuQjgjbuSek8P1Hf96IuIT22Ecomq.",
+      "id": 4
+    },
+    {
+      "username": "heinz",
+      "password": "$2b$10$4sNJuOB9eyvNov1RGkxAP.vnuQjgjbuSek8P1Hf96IuIT22Ecomq.",
+      "id": 5
+    },
+    {
+      "username": "jonny",
+      "password": "$2b$10$4sNJuOB9eyvNov1RGkxAP.vnuQjgjbuSek8P1Hf96IuIT22Ecomq.",
+      "id": 6
+    }
+  ],
+  "productos": [
+    {
+      "nombre": "panasonic",
+      "imagen": "https://ep01.epimg.net/elpais/imagenes/2019/10/30/album/1572424649_614672_1572453030_noticia_normal.jpg",
+      "estadoCompra": "en Venta",
+      "estadoVenta": null,
+      "precio": "4",
+      "userId": 2,
+      "updatedAt": "2021-10-16T18:27:55.867Z",
+      "id": 17
+    },
+    {
+      "nombre": "technics",
+      "imagen": "https://m.media-amazon.com/images/I/71GQfWe3vdL._AC_SL1500_.jpg",
+      "estadoCompra": "Se compra",
+      "estadoVenta": " ",
+      "precio": "50",
+      "userId": 2,
+      "updatedAt": "2021-10-16T18:34:34.482Z",
+      "id": 18
+    },
+    {
+      "nombre": "samsung",
+      "imagen": "https://images.samsung.com/is/image/samsung/p6pim/es/ue55au7175uxxc/gallery/es-uhd-4k-tv-ue55au7175uxxc-front-gray-417830376?$720_576_PNG$",
+      "estadoCompra": " ",
+      "estadoVenta": "Se vende",
+      "precio": "35",
+      "userId": 2,
+      "updatedAt": "2021-10-16T18:36:52.075Z",
+      "id": 20
+    },
+    {
+      "nombre": "iphone",
+      "imagen": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone11-white-select-2019_GEO_EMEA?wid=1200&hei=630&fmt=jpeg&qlt=95&.v=1567021770073",
+      "estadoCompra": " ",
+      "estadoVenta": "Se vende",
+      "precio": "40",
+      "userId": 2,
+      "updatedAt": "2021-10-16T18:41:05.162Z",
+      "id": 21
+    }
+  ]
+}

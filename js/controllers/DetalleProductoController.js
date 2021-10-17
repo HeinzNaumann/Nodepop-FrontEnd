@@ -32,7 +32,6 @@ export default class DetalleProductoController {
                     PubSub.publish(PubSub.events.SHOW_LOADING)
                     button.setAttribute('disabled', 'disabled')
                     try {
-                        debugger
                         await dataService.deleteProducto(anuncio.id)
                         window.location.href = '/'
                     } catch (error) {

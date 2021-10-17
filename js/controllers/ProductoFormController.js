@@ -22,6 +22,7 @@ export default class ProductoFormController {
                 try {
                     const result = await dataService.createProducto(nombre, imagen, estadoCompra, estadoVenta, precio)
                     PubSub.publish(PubSub.events.SHOW_SUCCESS, "Creado correctamente")
+                    window.location.href = '/'
                 } catch (error) {
                     PubSub.publish(PubSub.events.SHOW_ERROR, error)
                 }

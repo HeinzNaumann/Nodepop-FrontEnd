@@ -1,8 +1,14 @@
-# Frontend PRO
+# NODE POP Practica de Javascript Front End de Keep Coding
 
-This is an example of a typical request: A friend of us wants to publish a list of video games and the details. Kind of a blog.
+Se trata de unas practicas creadas para Keep coding donde simulamos una especie de wallapop donde el usuario debe de registrarse para poder crear anuncios de venta o compra y en el caso de que no lo este no pueda borrar ni crearlos, solo verlos y ver el detalle del producto.
 
-Our inputs are 2 htmls, 1 json containing the DB and one index.js to fetch the data.
+Todo el codigo esta creado con Vanilla Javascript.
+
+
 
 ## Requirements
 
+Para arrancar la practica hacer un fork y instalar Sparrest de @Kas en el siguiente enlace:
+https://github.com/kasappeal/sparrest.js
+
+Se adjunta para las pruebas el archivo db.json para copiar en la carpeta de sparrest (simulador de servidor local)
